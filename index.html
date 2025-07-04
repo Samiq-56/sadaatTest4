@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sadaat O Momineen Matrimony</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="final.ico">
+
+  <style>
+    :root {
+      --primary: #0A5C36;
+      --primary-light: #1B7A4E;
+      --primary-dark: #07482B;
+      --secondary: #1A2E4A;
+      --gold: #D4AF37;
+      --white: #FFFFFF;
+      --off-white: #F9F9F9;
+      --light-gray: #F0F2F5;
+      --text-dark: #2D3748;
+      --text-medium: #4A5568;
+     background-image: url('loginbackground5.jpg');
+
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--off-white);
+      color: var(--text-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(10, 92, 54, 0.05) 0%, rgba(26, 46, 74, 0.05) 100%);
+    }
+
+    .login-container {
+      background-color: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .login-container:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(to right, var(--primary), var(--gold));
+    }
+
+    .logo {
+      margin-bottom: 30px;
+    }
+
+    .logo h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .logo span {
+      font-size: 0.9rem;
+      color: var(--text-medium);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-dark);
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .input-with-icon {
+      position: relative;
+    }
+
+    .input-with-icon i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-medium);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px 12px 45px;
+      border: 1px solid var(--light-gray);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background-color: var(--off-white);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(10, 92, 54, 0.1);
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 14px;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .error-message {
+      color: #dc3545;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 25px 0;
+      color: var(--text-medium);
+      font-size: 0.9rem;
+    }
+
+    .divider:before,
+    .divider:after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .divider:before {
+      margin-right: 10px;
+    }
+
+    .divider:after {
+      margin-left: 10px;
+    }
+
+    .request-btn {
+      display: inline-block;
+      background-color: #28a745;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .request-btn:hover {
+      background-color: #218838;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 576px) {
+      .login-container {
+        padding: 30px 20px;
+        margin: 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <h1>Sadaat O Momineen</h1>
+      <span>Blessed Unions Rooted in Faith</span>
+    </div>
+    
+    <h2>Member Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <div class="input-with-icon">
+          <i class="fas fa-user"></i>
+          <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-with-icon">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+      </div>
+
+      <div id="errorMessage" class="error-message"></div>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <div class="divider">OR</div>
+    <h3>Submit Request To Admin</h3>
+    
+    <a href="https://forms.gle/ZMEgsXC8m1foqp4m8" class="request-btn">
+      <i class="fas fa-paper-plane"></i> Request Access
+    </a>
+    <!-- Add this right before the closing </div> of login-container -->
+<a href="privacy.html" class="btn" style="background-color: var(--gold); margin-top: 15px;">
+  <i class="fas fa-user-shield"></i> Privacy Policy
+</a>
+
+<a href="howitworks.html" class="btn" style="background-color: var(--secondary); margin-top: 15px;">
+  <i class="fas fa-user-shield"></i> How It Works
+</a>
+  </div>
+  
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const errorElement = document.getElementById('errorMessage');
+      
+      // Hardcoded credentials
+      const validUsername = 'alimola51214';
+      const validPassword = '54321';
+      
+      if (username === validUsername && password === validPassword) {
+        // Successful login
+        errorElement.style.display = 'none';
+        sessionStorage.setItem('loggedIn', 'true');
+        window.location.href = 'main.html';
+      } else {
+        // Failed login
+        errorElement.textContent = 'Invalid username or password';
+        errorElement.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

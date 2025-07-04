@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sadaat O Momineen - How It Works</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="icon" href="final.ico">
+  <style>
+    :root {
+      --primary: #0A5C36;
+      --primary-light: #1B7A4E;
+      --primary-dark: #07482B;
+      --gold: #D4AF37;
+      --gold-light: #E8C766;
+      --white: #FFFFFF;
+      --off-white: #F9F9F9;
+      --light-gray: #F0F2F5;
+      --text-dark: #2D3748;
+      --text-medium: #4A5568;
+      
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.7;
+      background-color: var(--off-white);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: var(--primary-dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .section-text {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 50px;
+      color: var(--text-medium);
+      font-size: 1.1rem;
+    }
+
+    /* Steps Section */
+    .steps {
+      background-color: var(--light-gray);
+      background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+      position: relative;
+    }
+
+    .steps:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step {
+      text-align: center;
+      padding: 40px 25px;
+      border-radius: 12px;
+      background-color: var(--white);
+      box-shadow: var(--shadow-lg);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      border: 2px solid var(--gold-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--gold));
+    }
+
+    .step.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .step:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: var(--white);
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      z-index: 1;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .step-number:after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px dashed var(--gold);
+      border-radius: 50%;
+      animation: rotate 15s linear infinite;
+    }
+
+    .step h3 {
+      margin-bottom: 15px;
+      color: var(--primary-dark);
+      font-family: 'Playfair Display', serif;
+      position: relative;
+    }
+
+    .step h3:after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .step p {
+      color: var(--text-medium);
+      font-size: 0.95rem;
+    }
+
+    /* Animations */
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .section-title {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 80px 0;
+      }
+      
+      .step {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+  
+    
+    footer {
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+      color: var(--white);
+      padding: 80px 0 30px;
+      position: relative;
+      border-top: 1px solid var(--primary-light);
+      font-family: 'Poppins', sans-serif;
+      background-color: #095633;
+    }
+
+    footer:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(to right, var(--primary), var(--gold));
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+
+    .footer-logo h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .footer-logo p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .footer-links h4 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+      .back-button {
+    padding: 10px 40px;
+    font-size: 16px;
+    background-color: #017703;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .back-button:hover {
+    background-color: #e0d12e; /* lighter shade */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+   
+  </style>
+</head>
+<body>
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="section steps">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeInDown">Our Sacred Process</h2>
+      <p class="section-text animate__animated animate__fadeIn animate__delay-1s">A halal and dignified path to finding your righteous life partner</p>
+      
+      <div class="steps-grid">
+        <div class="step animate-on-scroll">
+          <span class="step-number">1</span>
+          <h3>Submit Request Form</h3>
+          <p>Fill out the official Google Form to request access to the website.</p>
+          <i class="fas fa-file-alt" style="color: var(--gold); margin-top: 15px; font-size: 1.5rem;"></i>
+        </div>
+        
+        <div class="step animate-on-scroll" style="transition-delay: 0.1s">
+          <span class="step-number">2</span>
+          <h3>Family Verification</h3>
+          <p>If approved, you’ll receive a Username and Password via WhatsApp or Email.</p>
+          <i class="fas fa-user-check" style="color: var(--gold); margin-top: 15px; font-size: 1.5rem;"></i>
+        </div>
+        
+        <div class="step animate-on-scroll" style="transition-delay: 0.2s">
+          <span class="step-number">3</span>
+          <h3>Account Approval</h3>
+          <p>Use the provided credentials to log in and access the website's features.</p>
+          <i class="fas fa-envelope" style="color: var(--gold); margin-top: 15px; font-size: 1.5rem;"></i>
+        </div>
+        
+      
+
+        <div class="step animate-on-scroll" style="transition-delay: 0.3s">
+          <span class="step-number">4</span>
+        <h3>If You Like a Profile</h3>
+         <p>Phone numbers and photos will be shared only by the admin to ensure privacy and security.</p>
+
+          <i class="fas fa-heart" style="color: var(--gold); margin-top: 15px; font-size: 1.5rem;"></i>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  <div>
+   <div style="text-align: center;">
+ <button onclick="window.location.href='index.html'" class="back-button">
+  ← Back
+</button>
+  <br><br>
+</div>
+<br><br>
+  </div>
+  
+   <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h3>Sadaat O Momineen</h3>
+          <p>Blessed Unions Rooted in Faith</p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">How It Works</a></li>
+              <li><a href="#">Marriage Guidance</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li>📞 +1 (437) 993-7092</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Sadaat O Momineen. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animation for steps
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('animated');
+        }
+      });
+    }
+
+    // Initialize animations
+    window.addEventListener('load', () => {
+      animateOnScroll();
+      
+      // Animate steps with delays
+      const steps = document.querySelectorAll('.step');
+      steps.forEach((step, index) => {
+        step.style.transitionDelay = `${index * 0.1}s`;
+      });
+    });
+
+    // Run animation check on scroll
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
+</html>

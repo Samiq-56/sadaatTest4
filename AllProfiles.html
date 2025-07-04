@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Profiles | Sadaat O Momineen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="final.ico">
+  <style>
+    :root {
+      --primary: #0A5C36;
+      --primary-light: #1B7A4E;
+      --primary-dark: #07482B;
+      --white: #FFFFFF;
+      --off-white: #F9F9F9;
+      --light-gray: #F0F2F5;
+      --text-dark: #2D3748;
+      --secondary: #1A2E4A;
+      --gold: #D4AF37;
+    }
+    
+    /* Navigation Styles */
+    .navbar {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    /* Main Content Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--off-white);
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .filter-section {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .filter-group label {
+      font-weight: 500;
+      color: var(--primary-dark);
+    }
+    
+    .filter-group select {
+      padding: 8px 12px;
+      border: 1px solid var(--light-gray);
+      border-radius: 5px;
+      background-color: var(--off-white);
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .profile-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .profile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+    
+    .profile-card h2 {
+      color: var(--primary);
+      margin-top: 0;
+      border-bottom: 1px solid var(--light-gray);
+      padding-bottom: 10px;
+      font-size: 1.4rem;
+    }
+    
+    .profile-info {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      display: flex;
+    }
+    
+    .profile-info strong {
+      color: var(--primary-dark);
+      min-width: 120px;
+      display: inline-block;
+      font-weight: 500;
+    }
+    
+    .profile-info span {
+      color: var(--text-dark);
+      flex-grow: 1;
+      word-break: break-word;
+    }
+    
+    .add-new-btn {
+      display: block;
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin: 20px auto;
+      width: 200px;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .add-new-btn:hover {
+      background-color: var(--primary-light);
+    }
+    
+    .section-title {
+      color: var(--primary);
+      font-weight: 600;
+      margin: 15px 0 8px 0;
+      border-bottom: 1px dashed var(--light-gray);
+      padding-bottom: 5px;
+      font-size: 1.1rem;
+    }
+    
+    .reset-btn {
+      background-color: var(--primary-light);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .reset-btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* Loading indicator */
+    #loading {
+      text-align: center;
+      padding: 40px;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    /* Error message */
+    .error-message {
+      color: #dc3545;
+      text-align: center;
+      padding: 20px;
+      font-weight: 500;
+      grid-column: 1/-1;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+      color: var(--white);
+      padding: 40px 0 20px;
+      position: relative;
+      border-top: 1px solid var(--primary-light);
+      font-family: 'Poppins', sans-serif;
+      background-color: #095633;
+      margin-top: 40px;
+    }
+
+    footer:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(to right, var(--primary), var(--gold));
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+    }
+
+    .footer-logo h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: var(--gold);
+    }
+
+    .footer-logo p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .footer-links h4 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      margin-top: 30px;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: var(--primary-dark);
+      z-index: 1001;
+      transition: right 0.3s ease;
+      padding: 20px;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    }
+    
+    .mobile-menu.active {
+      right: 0;
+    }
+    
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .close-menu {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .mobile-nav-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .mobile-nav-links li {
+      margin-bottom: 20px;
+    }
+    
+    .mobile-nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: none;
+    }
+    
+    .overlay.active {
+      display: block;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .profiles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-info {
+        flex-direction: column;
+      }
+      
+      .profile-info strong {
+        min-width: auto;
+        margin-bottom: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="main.html" class="logo">Sadaat O Momineen</a>
+      <ul class="nav-links">
+        <li><a href="main.html">Home</a></li>
+        <li><a href="AllProfiles.html">Browse Profiles</a></li>
+        <li><a href="main.html#about">About</a></li>
+        <li><a href="main.html#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger">☰</button>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <h3>Menu</h3>
+      <button class="close-menu" id="closeMenu">×</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="main.html">Home</a></li>
+      <li><a href="AllProfiles.html">Browse Profiles</a></li>
+      <li><a href="main.html#about">About</a></li>
+      <li><a href="main.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Matrimonial Profiles</h1>
+    <a href="main.html" class="add-new-btn">Add New Profile</a>
+    
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <div class="filter-group">
+        <label for="genderFilter" style="font-size: larger;">Filter by Gender:</label>
+        <select id="genderFilter">
+          <option value="all">All Genders</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      <button id="resetFilter" class="reset-btn" aria-label="Reset all filters">Reset Filters</button>
+    </div>
+    
+    <!-- Loading Indicator -->
+    <div id="loading">
+      <p>Loading profiles...</p>
+    </div>
+    
+    <!-- Profiles Container -->
+    <div class="profiles-grid" id="profilesContainer">
+      <!-- Profiles will be added here dynamically -->
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3>Sadaat O Momineen</h3>
+        <p>Blessed Unions Rooted in Faith</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="main.html#about">About Us</a></li>
+            <li><a href="main.html#how-it-works">How It Works</a></li>
+            <li><a href="main.html#guidance">Marriage Guidance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="privacy.html">Terms of Service</a></li>
+            <li>📞 +1 (437) 993-7092</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Sadaat O Momineen. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, query, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCJp-cXr_Zl8uUrbamQeSluXZ0_EEOAVVk",
+      authDomain: "sadaatmatrimony.firebaseapp.com",
+      projectId: "sadaatmatrimony",
+      storageBucket: "sadaatmatrimony.appspot.com",
+      messagingSenderId: "790960325582",
+      appId: "1:790960325582:web:f618eaee2e44831673619f",
+      measurementId: "G-Q6PDMMK1E4"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    
+    // DOM elements
+    const profilesContainer = document.getElementById('profilesContainer');
+    const loadingElement = document.getElementById('loading');
+    const genderFilter = document.getElementById('genderFilter');
+    const resetBtn = document.getElementById('resetFilter');
+    
+    // Mobile menu elements
+    const hamburger = document.getElementById('hamburger');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    
+    // Mobile menu functionality
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      overlay.classList.add('active');
+    });
+    
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+    
+    overlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+    
+    // Function to create profile card
+    function createProfileCard(profile) {
+      const profileCard = document.createElement('div');
+      profileCard.className = 'profile-card';
+      
+      // Format the timestamp
+      const timestamp = profile.timestamp?.toDate();
+      const formattedDate = timestamp ? timestamp.toLocaleString() : 'Date not available';
+      
+      profileCard.innerHTML = `
+        <h2>${profile.name || 'Not specified'}</h2>
+        
+        <div class="section-title">Basic Information</div>
+                <div class="profile-info"><strong>ID:</strong> <span>${profile.ID || 'Not Allotted Yet'}</span></div>
+        <div class="profile-info"><strong>Gender:</strong> <span>${profile.gender || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Date of Birth:</strong> <span>${profile.dob || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Height:</strong> <span>${profile.height || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Caste:</strong> <span>${profile.cast || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Languages:</strong> <span>${profile.language || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Family Status:</strong> <span>${profile.familyStatus || 'Not specified'}</span></div>
+        
+        <div class="section-title">Education & Career</div>
+        <div class="profile-info"><strong>Qualification:</strong> <span>${profile.qualification || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Job/Business:</strong> <span>${profile.job || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Designation:</strong> <span>${profile.designation || 'Not specified'}</span></div>
+        
+        <div class="section-title">Personal Details</div>
+        <div class="profile-info"><strong>Marital Status:</strong> <span>${profile.maritalStatus || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Religion:</strong> <span>${profile.religion || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Sect:</strong> <span>${profile.sect || 'Not specified'}</span></div>
+        
+        <div class="section-title">Family Information</div>
+        <div class="profile-info"><strong>Father:</strong> <span>${profile.father || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Mother:</strong> <span>${profile.mother || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Siblings:</strong> <span>${profile.siblings || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Married Siblings:</strong> <span>${profile.marriedSiblings || 'Not specified'}</span></div>
+        
+        <div class="section-title">Contact Details</div>
+        <div class="profile-info"><strong>City:</strong> <span>${profile.city || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Contact:</strong> <span>${profile.contact || 'Not specified'}</span></div>
+        
+        <div class="section-title">Additional Information</div>
+        <div class="profile-info"><strong>Property Details:</strong> <span>${profile.property || 'Not specified'}</span></div>
+        <div class="profile-info"><strong>Demands:</strong> <span>${profile.demands || 'Not specified'}</span></div>
+        
+        <div class="profile-info"><strong>Added on:</strong> <span>${formattedDate}</span></div>
+      `;
+      
+      return profileCard;
+    }
+    
+    // Function to filter profiles by gender
+    function filterProfilesByGender(profiles, gender) {
+      if (gender === 'all') return profiles;
+      return profiles.filter(profile => profile.gender === gender);
+    }
+    
+    // Function to display profiles
+    function displayProfiles(profiles) {
+      loadingElement.style.display = 'none';
+      profilesContainer.innerHTML = '';
+      
+      if (profiles.length === 0) {
+        const noResults = document.createElement('p');
+        noResults.className = 'error-message';
+        noResults.textContent = 'No profiles found matching your criteria.';
+        profilesContainer.appendChild(noResults);
+        return;
+      }
+      
+      profiles.forEach(profile => {
+        const profileCard = createProfileCard(profile);
+        profilesContainer.appendChild(profileCard);
+      });
+    }
+    
+    // Main function to load and manage profiles
+    function initializeProfileViewer() {
+      let allProfiles = [];
+      
+      // Load all profiles initially
+      onSnapshot(query(collection(db, "profiles")), 
+        (snapshot) => {
+          allProfiles = [];
+          snapshot.forEach((doc) => {
+            allProfiles.push(doc.data());
+          });
+          displayProfiles(allProfiles);
+        },
+        (error) => {
+          console.error("Error fetching profiles:", error);
+          loadingElement.style.display = 'none';
+          profilesContainer.innerHTML = `
+            <p class="error-message">
+              Error loading profiles. Please try again later.
+            </p>
+          `;
+        }
+      );
+      
+      // Add event listener for gender filter
+      genderFilter.addEventListener('change', () => {
+        const filteredProfiles = filterProfilesByGender(allProfiles, genderFilter.value);
+        displayProfiles(filteredProfiles);
+      });
+      
+      // Add event listener for reset button
+      resetBtn.addEventListener('click', () => {
+        genderFilter.value = 'all';
+        displayProfiles(allProfiles);
+      });
+    }
+    
+    // Initialize the profile viewer when page loads
+    window.addEventListener('DOMContentLoaded', initializeProfileViewer);
+  </script>
+</body>
+</html>
